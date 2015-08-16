@@ -75,6 +75,14 @@
     $ replace master_ip with kubernetes master ip address in node_user_data
     $ sudo ./deploy_nodes_coreos_libvirt.sh a 3
     ```
+ - Start 3 kubernetes nodes on 192.168.1.72
+
+    ```
+    $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
+    $ cd /var/lib/libvirt/images/coreos
+    $ replace master_ip with kubernetes master ip address in node_user_data
+    $ sudo ./deploy_nodes_coreos_libvirt.sh b 3
+    ```
  
 
 
