@@ -2,13 +2,15 @@
 
 1. Test installation
  * Check nodes
- ```
+
+     ```
      $ kubectl -s 172.17.8.101:8080 get nodes
- ```
+     ```
  * Check pods
- ```
+ 
+     ```
      $ kubectl -s 172.17.8.101:8080 get pods
- ```
+     ```
 1. Run tomcat
  * Create single node cluster
  * Create replica controller
