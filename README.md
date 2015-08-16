@@ -42,7 +42,7 @@
     ```
     $ kubectl -s 172.17.8.101:8080 get pods
     ```
- * Update cluster to 3 pods
+ * Update/Scale cluster to 3 pods
  
     ```
     $ kubectl -s 172.17.8.101:8080 scale --replicas=3 rc tomcat7
