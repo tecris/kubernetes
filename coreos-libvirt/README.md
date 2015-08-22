@@ -68,6 +68,7 @@
     $ cat /var/lib/libvirt/dnsmasq/default.leases
     ```
  - Kube-ui
+
     ```
     kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
     kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
