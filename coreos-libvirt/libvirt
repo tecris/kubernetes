@@ -4,7 +4,6 @@
 virsh suspend kubernetes-minion-1
 virsh resume kubernetes-minion-1
 
-virsh --connect qemu:///system start coreos1
 virsh list --all
 virsh destroy coreos1
 virsh undefine coreos1
