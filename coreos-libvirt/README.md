@@ -67,6 +67,12 @@
     get the ip address of the kubernetes master
     $ cat /var/lib/libvirt/dnsmasq/default.leases
     ```
+ - Kube-ui
+
+    ```
+    kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
+    kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
+    ```
  - Start 3 kubernetes nodes on 192.168.1.73
 
     ```
