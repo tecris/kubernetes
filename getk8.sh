@@ -1,5 +1,5 @@
 
-VERSION=v1.0.1
+VERSION=v1.0.3
 
 wget https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kube-controller-manager &
 wget https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kube-apiserver &
