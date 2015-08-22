@@ -1,0 +1,27 @@
+
+fleetctl list-machines
+etcdctl member list
+
+==== S Y S T E M C T L ====
+
+systemctl status -l
+systemctl status -l etcd2
+systemctl status -l fleet
+systemctl status -l flanneld
+
+sudo systemctl list-units | grep .service
+
+systemctl start etcd2
+sudo systemctl daemon-reload
+
+
+==== J O U R N A L ====
+journalctl -b -u service
+
+journalctl -u etcd2 -f
+journalctl -u flanneld -f
+
+journalctl -u flanneld.service -f
+journalctl -u etcd2.service -f
+
+journalctl -b -u etcd2
