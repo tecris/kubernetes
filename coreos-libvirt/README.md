@@ -3,8 +3,8 @@
  - Kubernetes installed on CoreOS cluster
  - CoreOS cluster running with libvirt on Ubuntu 14.04
  - Ubuntu 14.04 installed on 2 physical machines
-   - Kubernetes: v1.0.1
-   - CoreOS: alpha 774.0.0
+   - Kubernetes: v1.0.3
+   - CoreOS: alpha 779.0.0
    - Ubuntu: 14.04
 
 1. Ubuntu
