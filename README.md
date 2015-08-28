@@ -16,17 +16,17 @@
  * Create replica controller
 
     ```
-    $ kubectl -s 172.17.8.101:8080 create -f tomcat7-controller.json
+    $ kubectl -s 172.17.8.101:8080 create -f tomcat8-rc.yaml
     ```
  * Check replica controller created
 
     ```
-    $ kubectl -s 172.17.8.101:8080 get rc tomcat7
+    $ kubectl -s 172.17.8.101:8080 get rc tomcat8
     ```
  * Create service
  
     ```
-    $ kubectl -s 172.17.8.101:8080 create -f tomcat7-service.yaml
+    $ kubectl -s 172.17.8.101:8080 create -f tomcat7-svc.yaml
     ```
  * Check service created:
     - cli: 
@@ -36,7 +36,7 @@
       NAME      LABELS         SELECTOR       IP(S)          PORT(S)
       tomcat7   name=tomcat7   name=tomcat7   10.0.0.191     8080/TCP
       ```
-    - in browser: ```10.0.0.191:8080```
+    - in browser: ```172.17.8.101:30001```
  * Check pod
  
     ```
@@ -45,7 +45,7 @@
  * Update/Scale cluster to 3 pods
  
     ```
-    $ kubectl -s 172.17.8.101:8080 scale --replicas=3 rc tomcat7
+    $ kubectl -s 172.17.8.101:8080 scale --replicas=3 rc tomcat8
     ```
  * Check number of pods
  
@@ -56,17 +56,17 @@
   * Delete a pod
  
     ```
-    $ kubectl -s 172.17.8.101:8080 delete pod tomcat7-e7hxk
+    $ kubectl -s 172.17.8.101:8080 delete pod tomcat8-e7hxk
     ```
   * Delete tomcat7 replica controller
  
     ```
-    $ kubectl -s 172.17.8.101:8080 delete rc tomcat7
+    $ kubectl -s 172.17.8.101:8080 delete rc tomcat8
     ```
   * Delete tomcat7 service
  
     ```
-    $ kubectl -s 172.17.8.101:8080 delete services tomcat7
+    $ kubectl -s 172.17.8.101:8080 delete services tomcat8
     ```
   * Show all replica controllers
  
