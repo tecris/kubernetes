@@ -1,6 +1,6 @@
 # Kubernetes - basic commands
 
-1. Test installation
+1. Test kubernetes installation
  * Check nodes
 
      ```
@@ -11,45 +11,32 @@
      ```
      $ kubectl -s 172.17.8.101:8080 get pods
      ```
-1. Run tomcat
- * Create single node cluster
+1. Deploy tomcat8 on kuberntes
  * Create replica controller
 
     ```
     $ kubectl -s 172.17.8.101:8080 create -f tomcat8-rc.yaml
-    ```
- * Check replica controller created
-
-    ```
+    # check replica controller created
     $ kubectl -s 172.17.8.101:8080 get rc tomcat8
     ```
  * Create service
  
     ```
     $ kubectl -s 172.17.8.101:8080 create -f tomcat8-svc.yaml
+    # check service created
+    $ kubectl -s 172.17.8.101:8080 get svc tomcat8
     ```
- * Check service created:
-    - cli: 
-    
-      ```
-      $ kubectl -s 172.17.8.101:8080 get svc tomcat8
-      NAME      LABELS         SELECTOR       IP(S)          PORT(S)
-      tomcat8   name=tomcat8   name=tomcat8   10.0.0.191     8080/TCP
-      ```
-    - in browser: ```172.17.8.101:30001```
  * Check pod
  
     ```
     $ kubectl -s 172.17.8.101:8080 get pods
     ```
+ * Tomcat home page: ```172.17.8.101:30001```
  * Update/Scale cluster to 3 pods
  
     ```
     $ kubectl -s 172.17.8.101:8080 scale --replicas=3 rc tomcat8
-    ```
- * Check number of pods
- 
-    ```
+    # check number of pods
     $ kubectl -s 172.17.8.101:8080 get pods
     ```
 1. Various commands
