@@ -26,15 +26,15 @@
  * Create service
  
     ```
-    $ kubectl -s 172.17.8.101:8080 create -f tomcat7-svc.yaml
+    $ kubectl -s 172.17.8.101:8080 create -f tomcat8-svc.yaml
     ```
  * Check service created:
     - cli: 
     
       ```
-      $ kubectl -s 172.17.8.101:8080 get services tomcat7
+      $ kubectl -s 172.17.8.101:8080 get svc tomcat8
       NAME      LABELS         SELECTOR       IP(S)          PORT(S)
-      tomcat7   name=tomcat7   name=tomcat7   10.0.0.191     8080/TCP
+      tomcat8   name=tomcat8   name=tomcat8   10.0.0.191     8080/TCP
       ```
     - in browser: ```172.17.8.101:30001```
  * Check pod
@@ -58,12 +58,12 @@
     ```
     $ kubectl -s 172.17.8.101:8080 delete pod tomcat8-e7hxk
     ```
-  * Delete tomcat7 replica controller
+  * Delete tomcat8 replica controller
  
     ```
     $ kubectl -s 172.17.8.101:8080 delete rc tomcat8
     ```
-  * Delete tomcat7 service
+  * Delete tomcat8 service
  
     ```
     $ kubectl -s 172.17.8.101:8080 delete services tomcat8
