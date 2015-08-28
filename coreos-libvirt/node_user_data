@@ -43,7 +43,7 @@ coreos:
 
         [Service]
         ExecStartPre=-/usr/bin/mkdir -p /opt/bin
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/setup-network-environment -z /opt/bin/setup-network-environment http://192.168.1.72/repo/packages/k8/setup-network-environment/v1.0.0/setup-network-environment
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/setup-network-environment -z /opt/bin/setup-network-environment http://repo.server/repo/packages/k8/setup-network-environment/v1.0.0/setup-network-environment
         ExecStartPre=/usr/bin/chmod +x /opt/bin/setup-network-environment
         ExecStart=/opt/bin/setup-network-environment
         RemainAfterExit=yes
@@ -75,7 +75,7 @@ coreos:
         After=setup-network-environment.service
 
         [Service]
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-proxy -z /opt/bin/kube-proxy http://192.168.1.72/repo/packages/k8/1.0.3/kube-proxy
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-proxy -z /opt/bin/kube-proxy http://repo.server/repo/packages/k8/1.0.3/kube-proxy
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-proxy
         # wait for kubernetes master to be up and ready
         ExecStartPre=/opt/bin/wupiao master_ip 8080
@@ -95,7 +95,7 @@ coreos:
 
         [Service]
         EnvironmentFile=/etc/network-environment
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kubelet -z /opt/bin/kubelet http://192.168.1.72/repo/packages/k8/1.0.3/kubelet
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kubelet -z /opt/bin/kubelet http://repo.server/repo/packages/k8/1.0.3/kubelet
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kubelet
         # wait for kubernetes master to be up and ready
         ExecStartPre=/opt/bin/wupiao master_ip 8080
