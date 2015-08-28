@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: tomcat8
+  labels:
+    name: tomcat8
+spec:
+  replicas: 1
+  selector:
+    name: tomcat8
+  template:
+    metadata:
+      labels:
+        name: tomcat8
+    spec:
+      containers:
+      - name: tomcat8
+        image: docker.nuc:5000/tomcat8
+        ports:
+        - containerPort: 8080
