@@ -58,7 +58,8 @@
     $ wget http://alpha.release.core-os.net/amd64-usr/774.0.0/coreos_production_qemu_image.img.bz2
     $ bzip2 -d coreos_production_qemu_image.img.bz2
     ```
- - Start kubernetes master on 192.168.1.73
+1. Kubernetes
+ - Start master on 192.168.1.73
 
     ```
     $ cp deploy_master-node_coreos_libvirt.sh master-node_user_data  /var/lib/libvirt/images/coreos
@@ -73,7 +74,7 @@
     kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
     kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
     ```
- - Start 3 kubernetes nodes on 192.168.1.73
+ - Start 3 nodes on 192.168.1.73
 
     ```
     $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
@@ -81,7 +82,7 @@
     $ replace master_ip with kubernetes master ip address in node_user_data
     $ sudo ./deploy_nodes_coreos_libvirt.sh a 3
     ```
- - Start 3 kubernetes nodes on 192.168.1.72
+ - Start 3 nodes on 192.168.1.72
 
     ```
     $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
