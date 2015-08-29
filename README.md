@@ -1,16 +1,5 @@
-# Kubernetes - basic commands
+# Tomcat 8 on Kubernetes
 
-1. Test kubernetes installation
- * Check nodes
-
-     ```
-     $ kubectl -s 172.17.8.101:8080 get nodes
-     ```
- * Check pods
- 
-     ```
-     $ kubectl -s 172.17.8.101:8080 get pods
-     ```
 1. Deploy tomcat8 on kuberntes
  * Create replica controller
 
