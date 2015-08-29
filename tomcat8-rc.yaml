@@ -18,4 +18,3 @@ spec:
         image: docker.nuc:5000/tomcat8
         ports:
         - containerPort: 8080
-          hostPort: 8088
