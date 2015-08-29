@@ -93,6 +93,11 @@
     ```
  
 1. Test kubernetes installation
+ * UI: http://192.168.123.38:8080/ui
+ 
+     ```
+     $ kubectl -s 192.168.123.38:8080 get pods
+     ```
  * Check nodes
 
      ```
@@ -103,7 +108,6 @@
      ```
      $ kubectl -s 192.168.123.38:8080 get pods
      ```
-
 
 
 References
