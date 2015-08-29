@@ -1,6 +1,6 @@
 # Tomcat 8 on Kubernetes
 
-1. Deploy tomcat8 on kuberntes (assumption kuberntes master running on 92.168.123.38)
+1. Deploy Tomcat 8 on kuberntes (assumption kuberntes master running on 92.168.123.38)
  * Create replica controller
 
     ```
