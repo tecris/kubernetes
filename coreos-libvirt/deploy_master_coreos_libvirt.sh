@@ -18,6 +18,8 @@ fi
 
 COREOS_HOSTNAME="master$SEQ"
 
+sed -i -e "s/repo_server/$1/g" $USER_DATA_TEMPLATE
+
 if [ ! -d $LIBVIRT_PATH/$COREOS_HOSTNAME/openstack/latest ]; then
         mkdir -p $LIBVIRT_PATH/$COREOS_HOSTNAME/openstack/latest || (echo "Can not create $LIBVIRT_PATH/$COREOS_HOSTNAME/openstack/latest directory" && exit 1)
 fi
