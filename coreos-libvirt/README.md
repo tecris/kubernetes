@@ -92,7 +92,17 @@
     $ sudo ./deploy_nodes_coreos_libvirt.sh b 3
     ```
  
+1. Test kubernetes installation
+ * Check nodes
 
+     ```
+     $ kubectl -s 192.168.123.38:8080 get nodes
+     ```
+ * Check pods
+ 
+     ```
+     $ kubectl -s 192.168.123.38:8080 get pods
+     ```
 
 
 
