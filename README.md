@@ -1,6 +1,11 @@
 # Tomcat 8 on Kubernetes
 
-1. Deploy Tomcat 8 on kuberntes (assumption kuberntes master running on 92.168.123.38)
+1. Assumptions: 
+
+ - kubernetes master ip: 192.168.123.38
+ - docker registry running & image docker.nuc:5000/tomcat8 available
+
+1. Deploy Tomcat 8 on kuberntes
  * Create replica controller
 
     ```
