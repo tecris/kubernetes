@@ -62,7 +62,7 @@
  - Start master on 192.168.1.73
 
     ```
-    $ cp deploy_master_coreos_libvirt.sh master-node_user_data  /var/lib/libvirt/images/coreos
+    $ cp deploy_master_coreos_libvirt.sh master_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_master_coreos_libvirt.sh repo_server_ip
     # get kubernetes master ip address
