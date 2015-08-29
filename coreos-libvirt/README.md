@@ -4,7 +4,7 @@
  - CoreOS cluster running with libvirt on Ubuntu 14.04
  - Ubuntu 14.04 installed on 2 physical machines
    - Kubernetes: v1.0.3
-   - CoreOS: alpha 779.0.0
+   - CoreOS: alpha 789.0.0
    - Ubuntu: 14.04
 
 1. Ubuntu
@@ -62,9 +62,9 @@
  - Start master on 192.168.1.73
 
     ```
-    $ cp deploy_master-node_coreos_libvirt.sh master-node_user_data  /var/lib/libvirt/images/coreos
+    $ cp deploy_master_coreos_libvirt.sh master-node_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
-    $ sudo ./deploy_master-node_coreos_libvirt.sh
+    $ sudo ./deploy_master_coreos_libvirt.sh repo_server_ip
     # get kubernetes master ip address
     $ cat /var/lib/libvirt/dnsmasq/default.leases
     1440809945 52:54:00:d3:0f:b6 192.168.123.38 master ff:a5:fb:b3:45:00:02:00:00:ab:11:24:84:b6:7f:06:83:17:b9
@@ -81,7 +81,7 @@
     $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sed -i -e 's/master_ip/192.168.123.38/g' node_user_data
-    $ sudo ./deploy_nodes_coreos_libvirt.sh a 3
+    $ sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip repo_server_ip local_registry_op
     ```
  - Start 3 nodes on 192.168.1.72
 
@@ -89,7 +89,7 @@
     $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sed -i -e 's/master_ip/192.168.123.38/g' node_user_data
-    $ sudo ./deploy_nodes_coreos_libvirt.sh b 3
+    $ sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip repo_server_ip local_registry_op
     ```
  
 1. Test kubernetes installation
