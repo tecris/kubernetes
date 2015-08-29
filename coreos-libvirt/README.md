@@ -65,7 +65,7 @@
     $ cp deploy_master-node_coreos_libvirt.sh master-node_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_master-node_coreos_libvirt.sh
-    get the ip address of the kubernetes master
+    # get kubernetes master ip address
     $ cat /var/lib/libvirt/dnsmasq/default.leases
     1440809945 52:54:00:d3:0f:b6 192.168.123.38 master ff:a5:fb:b3:45:00:02:00:00:ab:11:24:84:b6:7f:06:83:17:b9
     ```
@@ -80,7 +80,7 @@
     ```
     $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
-    $ replace master_ip with kubernetes master ip address in node_user_data
+    # replace master_ip with kubernetes master ip address in node_user_data
     $ sudo ./deploy_nodes_coreos_libvirt.sh a 3
     ```
  - Start 3 nodes on 192.168.1.72
@@ -88,7 +88,7 @@
     ```
     $ cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
-    $ replace master_ip with kubernetes master ip address in node_user_data
+    # replace master_ip with kubernetes master ip address in node_user_data
     $ sudo ./deploy_nodes_coreos_libvirt.sh b 3
     ```
  
