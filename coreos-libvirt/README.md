@@ -67,12 +67,13 @@
     $ sudo ./deploy_master-node_coreos_libvirt.sh
     get the ip address of the kubernetes master
     $ cat /var/lib/libvirt/dnsmasq/default.leases
+    1440809945 52:54:00:d3:0f:b6 192.168.123.38 master ff:a5:fb:b3:45:00:02:00:00:ab:11:24:84:b6:7f:06:83:17:b9
     ```
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.0.3/cluster/addons/kube-ui)
 
     ```
-    kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
-    kubectl -s 192.168.1.73:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
+    kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
+    kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
     ```
  - Start 3 nodes on 192.168.1.73
 
