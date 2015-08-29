@@ -72,8 +72,8 @@
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.0.3/cluster/addons/kube-ui)
 
     ```
-    kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
-    kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
+    $ kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
+    $ kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
     ```
  - Start 3 nodes on 192.168.1.73
 
