@@ -26,7 +26,7 @@
     $ kubectl -s 192.168.123.38:8080 get pods
     ```
  * Tomcat home page: ```192.168.123.38:30001```
- * Update/Scale cluster to 3 pods
+ * Scale cluster to 3 pods
  
     ```
     $ kubectl -s 192.168.123.38:8080 scale --replicas=3 rc tomcat8
