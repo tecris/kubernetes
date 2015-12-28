@@ -12,7 +12,7 @@ write-files:
   - path: /etc/systemd/system/docker.service.d/50-insecure-registry.conf
     content: |
       [Service]
-      Environment='DOCKER_OPTS=--insecure-registry="docker.nuc" --insecure-registry="docker.nuc:5000"'
+      Environment='DOCKER_OPTS=--insecure-registry="casa.docker"'
   - path: /etc/hosts
     content: |
       <master-private-ip> master
