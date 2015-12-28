@@ -15,7 +15,7 @@ write-files:
       Environment='DOCKER_OPTS=--insecure-registry="docker.nuc" --insecure-registry="docker.nuc:5000"'
   - path: /etc/hosts
     content: |
-      master_ip master
+      <master-private-ip> master
       repo_server repo.server
       docker_nuc docker.nuc
 
@@ -28,7 +28,7 @@ coreos:
   etcd2:
     listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
     advertise-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
-    initial-cluster: master=http://master_ip:2380
+    initial-cluster: master=http://<master-private-ip>:2380
     proxy: on
   fleet:
     public-ip: %HOSTNAME%
@@ -80,9 +80,9 @@ coreos:
         ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-proxy -z /opt/bin/kube-proxy http://repo.server/repo/packages/k8/1.0.3/kube-proxy
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-proxy
         # wait for kubernetes master to be up and ready
-        ExecStartPre=/opt/bin/wupiao master_ip 8080
+        ExecStartPre=/opt/bin/wupiao <master-private-ip> 8080
         ExecStart=/opt/bin/kube-proxy \
-        --master=http://master_ip:8080 \
+        --master=http://<master-private-ip>:8080 \
         --logtostderr=true
         Restart=always
         RestartSec=10
@@ -100,11 +100,11 @@ coreos:
         ExecStartPre=/usr/bin/curl -L -o /opt/bin/kubelet -z /opt/bin/kubelet http://repo.server/repo/packages/k8/1.0.3/kubelet
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kubelet
         # wait for kubernetes master to be up and ready
-        ExecStartPre=/opt/bin/wupiao master_ip 8080
+        ExecStartPre=/opt/bin/wupiao <master-private-ip> 8080
         ExecStart=/opt/bin/kubelet \
         --address=0.0.0.0 \
         --port=10250 \
-        --api_servers=http://master_ip:8080 \
+        --api_servers=http://<master-private-ip>:8080 \
         --allow_privileged=true \
         --logtostderr=true \
         --cadvisor_port=4194 \

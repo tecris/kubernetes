@@ -37,7 +37,7 @@ if [ ! -f $USER_DATA_TEMPLATE ]; then
         exit 1
 fi
 
-sed -i -e "s/master_ip/$3/g" $USER_DATA_TEMPLATE
+sed -i -e "s/<master-private-ip>/$3/g" $USER_DATA_TEMPLATE
 sed -i -e "s/repo_server/$4/g" $USER_DATA_TEMPLATE
 sed -i -e "s/docker_nuc/$5/g" $USER_DATA_TEMPLATE
 
