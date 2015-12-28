@@ -60,6 +60,13 @@
     # bzip2 -d coreos_production_qemu_image.img.bz2
     ```
 1. Kubernetes
+ - Hack to remove dnsmasq leases
+    ```
+    # sudo service dnsmasq stop
+    # vi /var/lib/libvirt/dnsmasq/default.leases (delete entries as required)
+    # sudo service dnsmasq start
+    ```
+    
  - [Install and configure kubectl][1]
     ```
    # wget https://storage.googleapis.com/kubernetes-release/release/v1.1.3/bin/linux/amd64/kubectl
