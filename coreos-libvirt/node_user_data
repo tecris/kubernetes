@@ -25,7 +25,7 @@ ssh_authorized_keys:
 coreos:
   etcd2:
     proxy: on
-    listen-client-urls: http://0.0.0.0:2379
+    listen-client-urls: http://localhost:2379
     initial-cluster: master=http://<master-private-ip>:2380
   fleet:
     metadata: "role=node"
