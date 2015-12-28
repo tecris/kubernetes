@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 usage() {
-        echo "Usage: $0 node_identifier number_of_coreos_nodes"
+        echo "Usage: $0 node_identifier number_of_coreos_nodes master_ip_address docker_registry_ip_address"
 }
 
 if [ "$1" == "" ]; then
