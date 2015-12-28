@@ -24,12 +24,12 @@ hostname: master
 coreos:
   etcd2:
     name: master
-    listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
-    advertise-client-urls: http://%HOSTNAME%:2379,http://%HOSTNAME%:4001
-    initial-cluster-token: k8s_etcd
-    listen-peer-urls: http://%HOSTNAME%:2380,http://%HOSTNAME%:7001
-    initial-advertise-peer-urls: http://%HOSTNAME%:2380
     initial-cluster: master=http://%HOSTNAME%:2380
+    initial-advertise-peer-urls: http://%HOSTNAME%:2380
+    advertise-client-urls: http://%HOSTNAME%:2379,http://%HOSTNAME%:4001
+    listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
+    listen-peer-urls: http://%HOSTNAME%:2380,http://%HOSTNAME%:7001
+    initial-cluster-token: k8s_etcd
     initial-cluster-state: new
   fleet:
     metadata: "role=master"
