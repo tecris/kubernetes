@@ -16,26 +16,22 @@ write-files:
           sleep 1 && echo .;
         done;
       exit $?
-  - path: /etc/hosts
-    content: |
-      repo_server repo.server
 
 ssh_authorized_keys:
-# - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8qlWJPi5evOvB1/1m9nMaSc9tf1Phq8npyY8TgK7dnn/GmHzvQMF+dAZCcwpVkr8cr8GJHcPlIXDix+lLJ8Ow1Vmh4K9n/lp5pXnKn4gxTxp0Ox11zAZu+WsTP0rl8iAjBoVe20MI64Ni1M4kdXMe7FFCS+tsveWoG09KMDbMR3SxmPHdt6mPpZhJM0e0fs/zkMbxbwH/muxnpH7Lr/569OOvC+5tFmKHa6+ZLGrU4s5KSJSTI8DyH99Z+z92ctMagyTgGrc5fK/LU2na7fpKpO+iodxLaOBjTH+duHc/qO6f/yez92wvflMqCQyRyAa+GnrjAMD20JpcRhBbJ1er eugen@cristea.org
-- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDTzh1R9yNlX8TTeTXbDQGqi8qIgA+YaJ8wMDah5y4yulBNLaLLGFm6E9LavVgxHscG8QtwnLki8iukkdXpGc7tXA6qkePxh9P66Q89j5xHpNFRWcGFe55qCcoB/en2u9LeFddP2saFCsHgHC+VFjuQ2hMFh3hudVsKbWJrp+WaJBXORJvfO04e2cg9LVN69RAiP4Q8wQk9cNkCeYxLczauis0+0EckAePyjry/K21azE4UneCyY7be6rr4M4hRW023gaqrBrh9gqH1z5uxJ6xv71TpQQd1EabSMpjE6l0wscxBEK/mm47tnZtdGoWt276BixWP36kjXz+kjvIKmb/ev4c6kNxdMrdc3so444Uszicqh6NiStNpCoftN8wIkk0m1uJrL0cTC/3nDPRGqziUN55u+6bgt2lYy+RtMUnRrvhQI+3nnIBh7KHmCvcNNsnXIBZSxlq9CPJ+2inDS86ePY4VLaxrfG27HD3H4Kt2kvmReSSGnfpu8UcVvjnVu8jFOx7bGqp5t/TSb4UZCBdsqcK0wVXSn3zDW94YLExPA3nFhKdUktlGuSVP3+QR1HWn+o1CxmA1XW43YxTGIb8gSKPHGz/ugnAqRqlm2eXdHh/728d7X4RmqF2TAPe/6A0UBtE8lBN8JVqQIwKMHhvDZK0b2oW6HBQ8VXBc5QxL6w== eugen@nuc
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWlATdZZYbxA/2y74aCmeRJ4Ab24L7vBpW2GCpAzaPoxdtNYmZ13rzY+WD6OgujPSHdzbU/SJgPNPQN0WaIMt1vcyJp5epm7wU6T9jWdaULYJiRJr6u748fauJCVCYfRhEcADjgpWBgshB8BB3+tdvL7eeAEe1fCl0BK7v1naBIpNXFlPZzkj8KvtfCXWN51oecYzjLFVvkFNObz0f5tBat9jGQ7F+7zmlXmbs/knnj2PjhgzB/6veH0xYOgJBctQSKFsDe16RJKIYcRDmYF2U531keuxkcMywExRtsmzgn+rm6wmoHO/ZFnmv9b5ZTok66lho2mVSBBmlUdvOAPGN eugen@cristea.org
 
-hostname: %HOSTNAME%
+hostname: master
 coreos:
   etcd2:
     name: master
-    advertise-client-urls: http://%HOSTNAME%:2379
-    initial-advertise-peer-urls: http://%HOSTNAME%:2380
-    initial-cluster-token: k8s_etcd
     listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
-    listen-peer-urls: http://0.0.0.0:2380
+    advertise-client-urls: http://%HOSTNAME%:2379,http://%HOSTNAME%:4001
+    initial-cluster-token: k8s_etcd
+    listen-peer-urls: http://%HOSTNAME%:2380,http://%HOSTNAME%:7001
+    initial-advertise-peer-urls: http://%HOSTNAME%:2380
     initial-cluster: master=http://%HOSTNAME%:2380
+    initial-cluster-state: new
   fleet:
-    public-ip: %HOSTNAME%
     metadata: "role=master"
   units:
     - name: generate-serviceaccount-key.service
@@ -60,17 +56,13 @@ coreos:
 
         [Service]
         ExecStartPre=-/usr/bin/mkdir -p /opt/bin
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/setup-network-environment -z /opt/bin/setup-network-environment http://repo.server/repo/packages/k8/setup-network-environment/v1.0.0/setup-network-environment
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/setup-network-environment -z /opt/bin/setup-network-environment https://github.com/kelseyhightower/setup-network-environment/releases/download/v1.0.0/setup-network-environment
         ExecStartPre=/usr/bin/chmod +x /opt/bin/setup-network-environment
         ExecStart=/opt/bin/setup-network-environment
         RemainAfterExit=yes
         Type=oneshot
-    - name: etcd2.service
-      command: start
     - name: fleet.service
       command: start
-    - name:  systemd-networkd.service
-      command: restart
     - name: flanneld.service
       command: start
       drop-ins:
@@ -94,21 +86,22 @@ coreos:
         [Service]
         EnvironmentFile=/etc/network-environment
         ExecStartPre=-/usr/bin/mkdir -p /opt/bin
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-apiserver -z /opt/bin/kube-apiserver http://repo.server/repo/packages/k8/1.0.3/kube-apiserver
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-apiserver -z /opt/bin/kube-apiserver https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin/linux/amd64/kube-apiserver
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-apiserver
         ExecStartPre=/opt/bin/wupiao 127.0.0.1:2379/v2/machines
         ExecStart=/opt/bin/kube-apiserver \
-        --service_account_key_file=/opt/bin/kube-serviceaccount.key \
-        --service_account_lookup=false \
-        --admission_control=NamespaceLifecycle,NamespaceAutoProvision,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota \
-        --runtime_config=api/v1 \
-        --allow_privileged=true \
-        --insecure_bind_address=0.0.0.0 \
-        --insecure_port=8080 \
-        --kubelet_https=true \
-        --secure_port=6443 \
+        --service-account-key-file=/opt/bin/kube-serviceaccount.key \
+        --service-account-lookup=false \
+        --admission-control=NamespaceLifecycle,NamespaceAutoProvision,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota \
+        --runtime-config=api/v1 \
+        --allow-privileged=true \
+        --insecure-bind-address=0.0.0.0 \
+        --insecure-port=8080 \
+        --kubelet-https=true \
+        --secure-port=6443 \
         --service-cluster-ip-range=10.100.0.0/16 \
-        --etcd_servers=http://127.0.0.1:2379 \
+        --etcd-servers=http://127.0.0.1:2379 \
+        --public-address-override=%HOSTNAME% \
         --logtostderr=true
         Restart=always
         RestartSec=10
@@ -122,10 +115,10 @@ coreos:
         After=kube-apiserver.service
 
         [Service]
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-controller-manager -z /opt/bin/kube-controller-manager http://repo.server/repo/packages/k8/1.0.3/kube-controller-manager
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-controller-manager -z /opt/bin/kube-controller-manager https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin/linux/amd64/kube-controller-manager
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-controller-manager
         ExecStart=/opt/bin/kube-controller-manager \
-        --service_account_private_key_file=/opt/bin/kube-serviceaccount.key \
+        --service-account-private-key-file=/opt/bin/kube-serviceaccount.key \
         --master=127.0.0.1:8080 \
         --logtostderr=true
         Restart=always
@@ -140,7 +133,7 @@ coreos:
         After=kube-apiserver.service
 
         [Service]
-        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-scheduler -z /opt/bin/kube-scheduler http://repo.server/repo/packages/k8/1.0.3/kube-scheduler
+        ExecStartPre=/usr/bin/curl -L -o /opt/bin/kube-scheduler -z /opt/bin/kube-scheduler https://storage.googleapis.com/kubernetes-release/release/v1.1.2/bin/linux/amd64/kube-scheduler
         ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-scheduler
         ExecStart=/opt/bin/kube-scheduler --master=127.0.0.1:8080
         Restart=always
