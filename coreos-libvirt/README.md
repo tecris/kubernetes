@@ -124,4 +124,4 @@ References
 
 [Route example](http://www.thegeekstuff.com/2012/04/route-examples/)
 
-[1]:http://kubernetes.io/v1.0/docs/getting-started-guides/aws/kubectl.html
+[1]:https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
