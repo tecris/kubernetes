@@ -60,8 +60,14 @@
     $ bzip2 -d coreos_production_qemu_image.img.bz2
     ```
 1. Kubernetes
+ - [Install and configure kubectl][1]
+    ```
+   # wget https://storage.googleapis.com/kubernetes-release/release/v1.1.3/bin/linux/amd64/kubectl
+   # chmod +x kubectl
+   # mv kubectl /usr/local/bin
+    ```
+    
  - Start master on 192.168.1.73
-
     ```
     $ cp deploy_master_coreos_libvirt.sh master_user_data  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
@@ -70,7 +76,7 @@
     $ cat /var/lib/libvirt/dnsmasq/default.leases
     1440809945 52:54:00:d3:0f:b6 192.168.123.38 master ff:a5:fb:b3:45:00:02:00:00:ab:11:24:84:b6:7f:06:83:17:b9
     ```
- - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.0.3/cluster/addons/kube-ui)
+ - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.3/cluster/addons/kube-ui)
 
     ```
     $ kubectl -s 192.168.123.38:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
@@ -116,3 +122,5 @@ References
 [CoreOS with libvirt](https://coreos.com/os/docs/latest/booting-with-libvirt.html)
 
 [Route example](http://www.thegeekstuff.com/2012/04/route-examples/)
+
+[1]:http://kubernetes.io/v1.0/docs/getting-started-guides/aws/kubectl.html
