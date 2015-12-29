@@ -25,7 +25,7 @@
     ```
     $ kubectl -s 192.168.122.10:8080 get pods
     ```
- * Tomcat home page: ```192.168.122.10:30001```
+ * Tomcat home page: `192.168.122.51:30001` (192.168.122.51 - node ip address)
  * Scale cluster to 3 pods
  
     ```
