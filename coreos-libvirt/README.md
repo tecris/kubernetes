@@ -56,7 +56,7 @@
     ```
     # mkdir -p /var/lib/libvirt/images/coreos
     # cd /var/lib/libvirt/images/coreos
-    # wget http://alpha.release.core-os.net/amd64-usr/774.0.0/coreos_production_qemu_image.img.bz2
+    # wget http://alpha.release.core-os.net/amd64-usr/__VERSION__/coreos_production_qemu_image.img.bz2
     # bzip2 -d coreos_production_qemu_image.img.bz2
     ```
 1. Kubernetes
@@ -109,19 +109,11 @@
  
 1. Test kubernetes installation
  * UI: http://192.168.122.10:8080/ui
+ * CLI:
  
      ```
      # kubectl -s 192.168.122.10:8080 get pods
-     ```
- * Check nodes
-
-     ```
      # kubectl -s 192.168.122.10:8080 get nodes
-     ```
- * Check pods
- 
-     ```
-     # kubectl -s 192.168.122.10:8080 get pods
      ```
 
 
