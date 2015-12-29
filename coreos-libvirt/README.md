@@ -112,13 +112,9 @@
     ```
  - Hack :(
   - coreos nodes do not start properly :(, to 'fix' restart etcd2 in each node:
-    ```
-    # ssh core@node-X
-    # sudo su - 
-    # systemctl restart etcd2
-    ```
-  
- 
+
+    `# sudo systemctl restart etcd2`
+
 
 1. Test kubernetes installation
  * UI: http://192.168.122.10:8080/ui
