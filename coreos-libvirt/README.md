@@ -53,16 +53,8 @@
 1. CoreOS
  - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.3/docs/getting-started-guides/coreos/cloud-configs)
  - [Cluster architecture](https://coreos.com/os/docs/latest/cluster-architectures.html#easy-development/testing-cluster)
- - 
- - Download image
- - 
 
-    ```
-    # mkdir -p /var/lib/libvirt/images/coreos
-    # cd /var/lib/libvirt/images/coreos
-    # wget http://alpha.release.core-os.net/amd64-usr/__VERSION__/coreos_production_qemu_image.img.bz2
-    # bzip2 -d coreos_production_qemu_image.img.bz2
-    ```
+
 1. Kubernetes
  - Hack to remove dnsmasq leases
     ```
