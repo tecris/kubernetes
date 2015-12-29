@@ -95,7 +95,6 @@
     ```
     # cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
     # cd /var/lib/libvirt/images/coreos
-    # sed -i -e 's/master_ip/192.168.122.10/g' node_user_data
     # sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip repo_server_ip local_registry_op
     ```
  - Start 3 nodes on 192.168.1.73
@@ -103,7 +102,6 @@
     ```
     # cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
     # cd /var/lib/libvirt/images/coreos
-    # sed -i -e 's/master_ip/192.168.122.10/g' node_user_data
     # sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip repo_server_ip local_registry_op
     ```
  
