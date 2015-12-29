@@ -32,6 +32,9 @@
       becomes
       <forward mode='route'/>
     ```
+ - Configure for static ip address
+
+    ` ./staticIpAddress.sh`
  - Restart libvirt network
 
     ```
