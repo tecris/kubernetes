@@ -51,7 +51,11 @@
  - add routes that both subnet 192.168.12[2,3] can reach outside. Find gateway for machine A/B and add routes (good luck).
 
 1. CoreOS
+ - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.3/docs/getting-started-guides/coreos/cloud-configs)
+ - [Cluster architecture](https://coreos.com/os/docs/latest/cluster-architectures.html#easy-development/testing-cluster)
+ - 
  - Download image
+ - 
 
     ```
     # mkdir -p /var/lib/libvirt/images/coreos
