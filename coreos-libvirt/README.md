@@ -48,7 +48,14 @@
      # sudo route add -net 192.168.122.0 netmask 255.255.255.0 gw 192.168.1.72
      # sudo route add -net 192.168.123.0 netmask 255.255.255.0 gw 192.168.1.73
     ```
- - add routes that both subnet 192.168.12[2,3] can reach outside. Find gateway for machine A/B and add routes (good luck).
+ - add routes that both subnet 192.168.12[2,3] can reach outside. Find gateway for machine A/B and add routes.
+  * Example for 192.168.122
+
+    ```
+    Destination Network Address: 192.168.122.0
+    Subnet Mask: 255.255.255.0
+    Default Gateway: 192.168.1.68 (libvirt host)
+    ```
 
 1. CoreOS
  - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.3/docs/getting-started-guides/coreos/cloud-configs)
