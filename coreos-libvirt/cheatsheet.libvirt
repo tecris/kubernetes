@@ -1,3 +1,4 @@
+
 virsh destroy master
 virsh undefine master
 virsh list --all --table
