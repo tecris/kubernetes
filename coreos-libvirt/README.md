@@ -4,8 +4,8 @@
  - Kubernetes cluster: 1 master, multiple nodes
  - CoreOS cluster running with libvirt on Ubuntu 14.04
  - Ubuntu installed on 2 physical machines
-   - Kubernetes: v1.0.3
-   - CoreOS: alpha 789.0.0
+   - Kubernetes: v1.1.3
+   - CoreOS: alpha 835.9.0
    - Ubuntu: 14.04
 
 1. Ubuntu
