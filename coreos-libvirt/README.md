@@ -1,8 +1,10 @@
-## Kubernetes on CoreOS (virtualized on Ubuntu with libvirt)
+## Kubernetes on CoreOS
 
  - Kubernetes cluster installed on CoreOS cluster
  - Kubernetes cluster: 1 master, multiple nodes
  - CoreOS cluster running with libvirt on Ubuntu 14.04
+ - Host OS: Ubuntu
+ - Virtualization: libvirt
  - Ubuntu installed on 2 physical machines
    - Kubernetes: v1.1.3
    - CoreOS: alpha 835.9.0
@@ -82,12 +84,23 @@
     
  - Start master on 192.168.1.72
     ```
-    # cp deploy_master_coreos_libvirt.sh master_user_data  /var/lib/libvirt/images/coreos
+    # cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
     # cd /var/lib/libvirt/images/coreos
-    # sudo ./deploy_master_coreos_libvirt.sh repo_server_ip
-    # get kubernetes master ip address
-    # cat /var/lib/libvirt/dnsmasq/default.leases
-    1440809945 52:54:00:d3:0f:b6 192.168.122.10 master ff:a5:fb:b3:45:00:02:00:00:ab:11:24:84:b6:7f:06:83:17:b9
+    # sudo ./deploy_master_coreos_libvirt.sh
+    ```
+ - Start 3 nodes on 192.168.1.72
+
+    ```
+    # cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
+    # cd /var/lib/libvirt/images/coreos
+    # sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip registry_mirror_ip
+    ```
+ - Start 3 nodes on 192.168.1.73
+
+    ```
+    # cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
+    # cd /var/lib/libvirt/images/coreos
+    # sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
     ```
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.3/cluster/addons/kube-ui)
 
@@ -96,25 +109,6 @@
     # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
     # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
     ```
- - Start 3 nodes on 192.168.1.72
-
-    ```
-    # cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
-    # cd /var/lib/libvirt/images/coreos
-    # sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip repo_server_ip local_registry_op
-    ```
- - Start 3 nodes on 192.168.1.73
-
-    ```
-    # cp deploy_nodes_coreos_libvirt.sh node_user_data  /var/lib/libvirt/images/coreos
-    # cd /var/lib/libvirt/images/coreos
-    # sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip repo_server_ip local_registry_op
-    ```
- - Hack :(
-  - coreos nodes do not start properly :(, to 'fix' restart etcd2 in each node:
-
-    `# sudo systemctl restart etcd2`
-
 
 1. Test kubernetes installation
  * UI: http://192.168.122.10:8080/ui
