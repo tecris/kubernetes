@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 usage() {
-        echo "Usage: $0 node_identifier number_of_coreos_nodes master_ip_address docker_registry_ip_address"
+        echo "Usage: node_identifier number_of_coreos_nodes master_ip_address docker_registry_mirror_ip_address"
 }
 
 if [ "$1" == "" ]; then
@@ -38,7 +38,7 @@ if [ ! -f $USER_DATA_TEMPLATE ]; then
 fi
 
 sed -i -e "s/<master-private-ip>/$3/g" $USER_DATA_TEMPLATE
-sed -i -e "s/blue_sky/$4/g" $USER_DATA_TEMPLATE
+sed -i -e "s/registry_mirror/$4/g" $USER_DATA_TEMPLATE
 
 for SEQ in $(seq 1 $2); do
         COREOS_HOSTNAME="node-$1$SEQ"
