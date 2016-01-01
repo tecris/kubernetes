@@ -12,6 +12,7 @@
     $ kubectl -s 192.168.122.10:8080 create -f demo/tomcat/tomcat8-rc.yaml
     # check replica controller created
     $ kubectl -s 192.168.122.10:8080 get rc tomcat8
+    $ kubectl -s 192.168.122.10:8080 describe rc tomcat8
     ```
  * Create service
  
@@ -19,6 +20,7 @@
     $ kubectl -s 192.168.122.10:8080 create -f demo/tomcat/tomcat8-svc.yaml
     # check service created
     $ kubectl -s 192.168.122.10:8080 get svc tomcat8
+    $ kubectl -s 192.168.122.10:8080 describe svc tomcat8
     ```
  * Check pod
  
@@ -34,6 +36,11 @@
     $ kubectl -s 192.168.122.10:8080 get pods
     ```
 1. Various commands
+  * Describe a pod
+ 
+    ```
+    $ kubectl -s 192.168.122.10:8080 describe pod tomcat8-e7hxk
+    ```
   * Delete a pod
  
     ```
