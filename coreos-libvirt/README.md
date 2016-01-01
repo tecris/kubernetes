@@ -1,8 +1,10 @@
-## Kubernetes on CoreOS (virtualized on Ubuntu with libvirt)
+## Kubernetes on CoreOS
 
  - Kubernetes cluster installed on CoreOS cluster
  - Kubernetes cluster: 1 master, multiple nodes
  - CoreOS cluster running with libvirt on Ubuntu 14.04
+ - Host OS: Ubuntu
+ - Virtualization: libvirt
  - Ubuntu installed on 2 physical machines
    - Kubernetes: v1.1.3
    - CoreOS: alpha 835.9.0
@@ -110,11 +112,6 @@
     # cd /var/lib/libvirt/images/coreos
     # sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip repo_server_ip local_registry_op
     ```
- - Hack :(
-  - coreos nodes do not start properly :(, to 'fix' restart etcd2 in each node:
-
-    `# sudo systemctl restart etcd2`
-
 
 1. Test kubernetes installation
  * UI: http://192.168.122.10:8080/ui
