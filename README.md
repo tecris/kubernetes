@@ -9,14 +9,14 @@
  * Create replica controller
 
     ```
-    $ kubectl -s 192.168.122.10:8080 create -f tomcat8-rc.yaml
+    $ kubectl -s 192.168.122.10:8080 create -f demo/tomcat/tomcat8-rc.yaml
     # check replica controller created
     $ kubectl -s 192.168.122.10:8080 get rc tomcat8
     ```
  * Create service
  
     ```
-    $ kubectl -s 192.168.122.10:8080 create -f tomcat8-svc.yaml
+    $ kubectl -s 192.168.122.10:8080 create -f demo/tomcat/tomcat8-svc.yaml
     # check service created
     $ kubectl -s 192.168.122.10:8080 get svc tomcat8
     ```
