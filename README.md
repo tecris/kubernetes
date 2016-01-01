@@ -3,7 +3,7 @@
 1. Assumptions: 
 
  - kubernetes master ip: 192.168.122.10
- - docker registry running & image casadocker/tomcat:8.0.30 available
+ - docker registry running & image blue.sky/tomcat:8.0.30 available
 
 1. Deploy Tomcat 8 on kuberntes
  * Create replica controller
