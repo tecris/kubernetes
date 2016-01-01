@@ -36,12 +36,12 @@ coreos:
     - name: flanneld.service
       command: start
       drop-ins:
-         - name: 50-network-config.conf
-           content: |
-             [Unit]
-             Requires=etcd2.service
-             [Service]
-             ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.244.0.0/16", "Backend": {"Type": "vxlan"}}'
+        - name: 50-network-config.conf
+          content: |
+            [Unit]
+            Requires=etcd2.service
+            [Service]
+            ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{"Network":"10.244.0.0/16", "Backend": {"Type": "vxlan"}}'
     - name: docker.service
       command: start
     - name: setup-network-environment.service
