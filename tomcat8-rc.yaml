@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: tomcat8
-        image: casa.docker/tomcat:8.0.30
+        image: casadocker/tomcat:8.0.30
         ports:
         - containerPort: 8080

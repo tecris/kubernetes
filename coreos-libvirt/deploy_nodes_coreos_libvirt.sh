@@ -38,7 +38,7 @@ if [ ! -f $USER_DATA_TEMPLATE ]; then
 fi
 
 sed -i -e "s/<master-private-ip>/$3/g" $USER_DATA_TEMPLATE
-sed -i -e "s/casa_docker/$4/g" $USER_DATA_TEMPLATE
+sed -i -e "s/blue_sky/$4/g" $USER_DATA_TEMPLATE
 
 for SEQ in $(seq 1 $2); do
         COREOS_HOSTNAME="node-$1$SEQ"
