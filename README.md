@@ -68,3 +68,19 @@
 
 ### Widlfy and MySQL
 
+ * Add DNS to kubernetes
+
+   ```
+   # kubectl create -f addons/dns/skydns-rc.yaml
+   # kubectl create -f addons/dns/skydns-svc.yaml
+   ```
+ * Add application
+
+   ```
+   # kubectl create -f demo/jee/planets-db-pod.yaml
+   # kubectl create -f demo/jee/planets-db-svc.yaml
+   # kubectl create -f demo/jee/planets-web-rc.yaml
+   # kubectl create -f demo/jee/planets-web-svc.yaml
+   ```
+   
+   http://192.168.122.51:30002/planet
