@@ -109,9 +109,9 @@
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.3/cluster/addons/kube-ui)
 
     ```
-    # kubectl -s 192.168.122.10:8080 create -f kube-ui/kube-system.json
-    # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f kube-ui/kube-ui-rc.yaml
-    # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f kube-ui/kube-ui-svc.yaml
+    # kubectl -s 192.168.122.10:8080 create -f addons/kube-system.json
+    # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
+    # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
     ```
 
 1. Test kubernetes installation
