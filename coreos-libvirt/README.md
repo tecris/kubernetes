@@ -80,6 +80,10 @@
    # wget https://storage.googleapis.com/kubernetes-release/release/v1.1.3/bin/linux/amd64/kubectl
    # chmod +x kubectl
    # mv kubectl /usr/local/bin
+   -- configuration
+   # kubectl config set-cluster default-cluster --server=http://192.168.122.10:8080
+   # kubectl config set-context default-system --cluster=default-cluster
+   # kubectl config use-context default-system
     ```
     
  - Start master on 192.168.1.72
