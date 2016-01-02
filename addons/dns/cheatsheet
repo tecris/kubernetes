@@ -1,0 +1,34 @@
+
+ === D N S ===
+
+ How to test DNS is working
+      (https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/dns#how-do-i-test-if-it-is-working)
+ .) create simple pod
+    # kubectl create -f busybox.yaml 
+
+ .) Validate DNS works (https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/dns#how-do-i-test-if-it-is-working)
+    # kubectl exec busybox -- nslookup kubernetes.default
+    # kubectl exec busybox -- nslookup kubernetes.default 10.100.89.100
+
+
+Handy to debug issues:
+
+kubectl describe pods --namespace=kube-system
+kubectl describe po kube-dns-v8-ikzdc --namespace=kube-system
+
+kubectl logs -f kube-dns-v8-ikzdc -c etcd --namespace=kube-system
+kubectl logs -f kube-dns-v8-ikzdc -c healthz --namespace=kube-system
+kubectl logs -f kube-dns-v8-ikzdc -c kube2sky --namespace=kube-system
+kubectl logs -f kube-dns-v8-ikzdc -c skydns --namespace=kube-system
+
+
+
+
+kubectl describe pods
+kubectl describe pods --namespace=kube-system
+kubectl describe po kube-dns-v8-ikzdc --namespace=kube-system
+kubectl describe po --namespace=kube-system
+
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces -o wide
+kubectl get po,svc,rc --all-namespaces -o wide
