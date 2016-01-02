@@ -1,4 +1,7 @@
-# Tomcat 8 on Kubernetes
+### [Tomcat 8](#tomcat)
+### [Java EE Demo](#java)
+
+#### Tomcat
 
 1. Assumptions: 
 
@@ -61,3 +64,7 @@
     ```
     $ kubectl -s 192.168.122.10:8080 get rc 
     ```
+
+
+### Java
+
