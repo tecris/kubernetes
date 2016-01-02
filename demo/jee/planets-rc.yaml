@@ -15,6 +15,6 @@ spec:
       containers:
       - name: planeets-web-rc-pod
         image: blue.sky/planets-web:1
-        command: ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-Dmysql.ipaddress=10.100.89.154","-Dmysql.port=3306","-Dmysql.database=planetsdb","-Dmysql.username=planets","-Dmysql.password=1planets!"]
+        command: ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-Dmysql.ipaddress=mysql-service.default.svc.cluster.local","-Dmysql.port=3306","-Dmysql.database=planetsdb","-Dmysql.username=planets","-Dmysql.password=1planets!"]
         ports:
         - containerPort: 8080
