@@ -9,7 +9,8 @@ spec:
   containers: 
     - 
       name: planets-mysql-db
-      image: blue.sky/mysql:5.7
+      image: blue.sky/planets-mysql-db:1
+      command: ["mysqld"]
       env: 
         - 
           name: "MYSQL_USER"
