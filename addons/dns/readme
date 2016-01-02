@@ -1,2 +1,11 @@
 
+ skydns-rc.yaml.in
+ skydns-svc.yaml.in
+
+ based on
+
+ https://github.com/kubernetes/kubernetes/tree/v1.1.3/cluster/addons/dns
+
+ Instructions:
+
  http://kubernetes.io/v1.1/docs/getting-started-guides/docker-multinode/deployDNS.html
