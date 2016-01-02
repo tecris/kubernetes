@@ -22,9 +22,20 @@ if ! [[ $2 =~ ^[0-9]+$ ]]; then
         exit 1
 fi
 
+if [ "$3" == "" ]; then
+        echo "Master ip address not specified"
+        usage
+        exit 1
+fi
+
+if [ "$4" == "" ]; then
+        echo "Private registry ip address not specified"
+        usage
+        exit 1
+fi
+
 LIBVIRT_PATH=/var/lib/libvirt/images/coreos
 USER_DATA_TEMPLATE=$LIBVIRT_PATH/node.yaml
-ETCD_DISCOVERY=$(curl -s "https://discovery.etcd.io/new?size=$2")
 RAM=1024
 CPUs=1
 
@@ -37,8 +48,6 @@ if [ ! -f $USER_DATA_TEMPLATE ]; then
         exit 1
 fi
 
-sed -i -e "s/<master-private-ip>/$3/g" $USER_DATA_TEMPLATE
-sed -i -e "s/registry_mirror/$4/g" $USER_DATA_TEMPLATE
 
 for SEQ in $(seq 1 $2); do
         COREOS_HOSTNAME="node-$1$SEQ"
@@ -55,7 +64,7 @@ for SEQ in $(seq 1 $2); do
                 qemu-img create -f qcow2 -b $LIBVIRT_PATH/coreos_production_qemu_image.img $LIBVIRT_PATH/$COREOS_HOSTNAME.qcow2
         fi
 
-        sed "s#%HOSTNAME%#$COREOS_HOSTNAME#g;s#%DISCOVERY%#$ETCD_DISCOVERY#g" $LIBVIRT_PATH/node.yaml > $LIBVIRT_PATH/$COREOS_HOSTNAME/openstack/latest/user_data
+        sed "s/<master-private-ip>/$3/g;s/registry_mirror/$4/g;s/DNS_DOMAIN/cluster.local/g;s/DNS_SERVER_IP/10.0.0.10/g" $USER_DATA_TEMPLATE > $LIBVIRT_PATH/$COREOS_HOSTNAME/openstack/latest/user_data
 
         virt-install --connect qemu:///system --import --name $COREOS_HOSTNAME --ram $RAM --vcpus $CPUs --os-type=linux --os-variant=virtio26 --disk path=$LIBVIRT_PATH/$COREOS_HOSTNAME.qcow2,format=qcow2,bus=virtio --filesystem $LIBVIRT_PATH/$COREOS_HOSTNAME/,config-2,type=mount,mode=squash --vnc --noautoconsole --network network=default,model=virtio,mac=52:54:00:2c:05:0$SEQ
 done
