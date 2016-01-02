@@ -13,6 +13,10 @@
 
 Handy to debug issues:
 
+kubectl exec busybox -- cat /etc/resolv.conf
+kubectl exec busybox -- cat /etc/hosts
+kubectl exec busybox -- ifconfig
+
 kubectl describe pods --namespace=kube-system
 kubectl describe po kube-dns-v8-ikzdc --namespace=kube-system
 
@@ -23,6 +27,7 @@ kubectl logs -f kube-dns-v8-ikzdc -c skydns --namespace=kube-system
 
 
 
+kubectl describe no
 
 kubectl describe pods
 kubectl describe pods --namespace=kube-system
@@ -32,3 +37,4 @@ kubectl describe po --namespace=kube-system
 kubectl get pods --all-namespaces
 kubectl get pods --all-namespaces -o wide
 kubectl get po,svc,rc --all-namespaces -o wide
+
