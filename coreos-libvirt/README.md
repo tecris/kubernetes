@@ -1,9 +1,7 @@
 ## Kubernetes on CoreOS
 
- - Kubernetes cluster installed on CoreOS cluster
- - Kubernetes cluster: 1 master, multiple nodes
- - CoreOS cluster running with libvirt on Ubuntu 14.04
  - Host OS: Ubuntu
+ - Guest OS: CoreOS
  - Virtualization: libvirt
  - Ubuntu installed on 2 physical machines
    - Kubernetes: v1.1.3
@@ -68,12 +66,6 @@
 
 
 1. Kubernetes
- - Hack to remove dnsmasq leases
-    ```
-    # sudo service dnsmasq stop
-    # vi /var/lib/libvirt/dnsmasq/default.leases (delete entries as required)
-    # sudo service dnsmasq start
-    ```
     
  - [Install and configure kubectl][1]
     ```
@@ -109,18 +101,18 @@
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.3/cluster/addons/kube-ui)
 
     ```
-    # kubectl -s 192.168.122.10:8080 create -f addons/kube-system.json
-    # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
-    # kubectl -s 192.168.122.10:8080 --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
+    # kubectl create -f addons/kube-system.json
+    # kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
+    # kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
     ```
 
 1. Test kubernetes installation
- * UI: http://192.168.122.10:8080/ui
+ * UI: http://192.168.122.10:8080/ui -----BROKEN-----
  * CLI:
  
      ```
-     # kubectl -s 192.168.122.10:8080 get pods
-     # kubectl -s 192.168.122.10:8080 get nodes
+     # kubectl get pods
+     # kubectl get nodes
      ```
 
 
