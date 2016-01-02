@@ -1,5 +1,5 @@
 ### [Tomcat 8](#tomcat)
-### [Java EE Demo](#java)
+### [Wildfly & MySQL](#widlfy-and-mysql)
 
 #### Tomcat
 
@@ -66,5 +66,5 @@
     ```
 
 
-### Java
+### Widlfy and MySQL
 
