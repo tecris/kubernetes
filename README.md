@@ -2,7 +2,9 @@
 
 [Wildfly & MySQL](#widlfy-and-mysql)
 
-##### Tomcat
+[Kubectl commands](#varia-kubectl-commands)
+
+#### Tomcat
 
 1. Assumptions: 
 
@@ -20,20 +22,8 @@
     ```
  http://192.168.122.51:30001
 
-1. Varia kubectl commands
- 
-    ```
-    $ kubectl describe pod pod_name
-    $ kubectl get rc
-    $ kubectl describe rc replica_controller_name
-    $ kubectl delete pod pod_name
-    $ kubectl delete rc tomcat8
-    $ kubectl delete svc tomcat8
-    $ kubectl scale --replicas=3 rc tomcat8
-    ```
 
-
-##### Widlfy and MySQL
+#### Widlfy and MySQL
 
  * Add DNS to kubernetes
 
@@ -51,3 +41,16 @@
    ```
    
    http://192.168.122.51:30002/planet
+
+
+#### Varia kubectl commands
+ 
+   ```
+    $ kubectl describe pod pod_name
+    $ kubectl get rc
+    $ kubectl describe rc replica_controller_name
+    $ kubectl delete pod pod_name
+    $ kubectl delete rc tomcat8
+    $ kubectl delete svc tomcat8
+    $ kubectl scale --replicas=3 rc tomcat8
+   ```
