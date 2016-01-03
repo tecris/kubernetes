@@ -43,10 +43,17 @@
    ```
    # kubectl create -f demo/jee/planets-db-pod.yaml
    # kubectl create -f demo/jee/planets-db-svc.yaml
-   # kubectl create -f demo/jee/planets-web-rc.yaml
+   # kubectl create -f demo/jee/planets-web-rc-v1.yaml
    # kubectl create -f demo/jee/planets-web-svc.yaml
    ```
    
+ * Rolling update
+ 
+   ```
+   # kubectl scale --replicas=2 rc planets-web
+   - Update pods of frontend-v1 using new replication controller data in frontend-v2.json.
+   # kubectl rolling-update planets-web -f demo/jee/planets-web-rc-v2.yaml
+   ```
    http://192.168.122.51:30002/planet
 
 
