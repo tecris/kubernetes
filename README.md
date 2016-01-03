@@ -1,7 +1,8 @@
-### [Tomcat 8](#tomcat)
-### [Wildfly & MySQL](#widlfy-and-mysql)
+[Tomcat 8](#tomcat)
 
-#### Tomcat
+[Wildfly & MySQL](#widlfy-and-mysql)
+
+##### Tomcat
 
 1. Assumptions: 
 
@@ -32,7 +33,7 @@
     ```
 
 
-### Widlfy and MySQL
+##### Widlfy and MySQL
 
  * Add DNS to kubernetes
 
