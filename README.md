@@ -27,10 +27,10 @@
 
  * Assumptions: 
 
- - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
- - kubectl configured with kubernetes master
- - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
- - image blue.sky/tomcat:8.0.30 available (on private registry)
+  - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
+  - kubectl configured with kubernetes master
+  - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
+  - image blue.sky/tomcat:8.0.30 available (on private registry)
 
  * Add DNS to kubernetes
 
