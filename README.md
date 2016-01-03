@@ -26,11 +26,11 @@
 #### Widlfy and MySQL
 
  * Assumptions: 
-
+  
   - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
   - kubectl configured with kubernetes master
   - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
-  - image blue.sky/tomcat:8.0.30 available (on private registry)
+  - TODO: web and db images available on private registry
 
  * Add DNS to kubernetes
 
@@ -51,8 +51,8 @@
  
    ```
    # kubectl scale --replicas=2 rc planets-web
-   - Update pods of frontend-v1 using new replication controller data in frontend-v2.json.
-   # kubectl rolling-update planets-web -f demo/jee/planets-web-rc-v2.yaml
+   - Update pods of planets-web-v1 using new replication controller data in planets-web-rc-v2.yaml.
+   # kubectl rolling-update planets-web-v1 -f demo/jee/planets-web-rc-v2.yaml
    ```
    http://192.168.122.51:30002/planet
 
