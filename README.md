@@ -5,9 +5,10 @@
 
 1. Assumptions: 
 
- - kubeclt configured with kubernets master
+ - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
+ - kubectl configured with kubernets master
  - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
- - image blue.sky/tomcat:8.0.30 available
+ - image blue.sky/tomcat:8.0.30 available (on private registry)
 
 1. Deploy Tomcat 8 on kuberntes
  * Create replica controller & service
@@ -21,13 +22,13 @@
 1. Varia kubectl commands
  
     ```
-    $ kubectl -s 192.168.122.10:8080 describe pod pod_name
-    $ kubectl -s 192.168.122.10:8080 get rc
-    $ kubectl -s 192.168.122.10:8080 describe rc replica_controller_name
-    $ kubectl -s 192.168.122.10:8080 delete pod pod_name
-    $ kubectl -s 192.168.122.10:8080 delete rc tomcat8
-    $ kubectl -s 192.168.122.10:8080 delete svc tomcat8
-    $ kubectl -s 192.168.122.10:8080 scale --replicas=3 rc tomcat8
+    $ kubectl describe pod pod_name
+    $ kubectl get rc
+    $ kubectl describe rc replica_controller_name
+    $ kubectl delete pod pod_name
+    $ kubectl delete rc tomcat8
+    $ kubectl delete svc tomcat8
+    $ kubectl scale --replicas=3 rc tomcat8
     ```
 
 
