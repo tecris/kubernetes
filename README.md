@@ -52,7 +52,7 @@
    ```
    # kubectl scale --replicas=2 rc planets-web
    - Update pods of planets-web-v1 using new replication controller data in planets-web-rc-v2.yaml.
-   # kubectl rolling-update planets-web-v1 -f demo/jee/planets-web-rc-v2.yaml
+   # kubectl rolling-update planets-web-v1 planets-web-v2 -f demo/jee/planets-web-rc-v2.yaml
    ```
    http://192.168.122.51:30002/planet
 
