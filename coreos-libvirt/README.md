@@ -17,7 +17,7 @@
 
     ```
      # sudo apt-get install dnsmasq ebtables qemu-kvm qemu virt-manager virt-viewer libvirt-bin
-     # sudo usermod -a -G libvirtd $USER`
+     # sudo usermod -a -G libvirtd $USER
     ```
  - Verify installation
    * `# virsh list --all`
