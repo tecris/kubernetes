@@ -18,7 +18,7 @@ write-files:
       exit $?
 
 ssh_authorized_keys:
-- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWlATdZZYbxA/2y74aCmeRJ4Ab24L7vBpW2GCpAzaPoxdtNYmZ13rzY+WD6OgujPSHdzbU/SJgPNPQN0WaIMt1vcyJp5epm7wU6T9jWdaULYJiRJr6u748fauJCVCYfRhEcADjgpWBgshB8BB3+tdvL7eeAEe1fCl0BK7v1naBIpNXFlPZzkj8KvtfCXWN51oecYzjLFVvkFNObz0f5tBat9jGQ7F+7zmlXmbs/knnj2PjhgzB/6veH0xYOgJBctQSKFsDe16RJKIYcRDmYF2U531keuxkcMywExRtsmzgn+rm6wmoHO/ZFnmv9b5ZTok66lho2mVSBBmlUdvOAPGN eugen@cristea.org
+- PUBLIC_KEY
 
 hostname: master
 coreos:
