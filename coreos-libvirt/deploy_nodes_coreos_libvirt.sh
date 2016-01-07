@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# https://coreos.com/os/docs/latest/booting-with-libvirt.html
+# wget https://raw.githubusercontent.com/coreos/docs/master/os/deploy_coreos_libvirt.sh
+
 usage() {
         echo "Usage: node_identifier number_of_coreos_nodes master_ip_address docker_registry_mirror_ip_address"
 }

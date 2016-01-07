@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# https://coreos.com/os/docs/latest/booting-with-libvirt.html
+# wget https://raw.githubusercontent.com/coreos/docs/master/os/deploy_coreos_libvirt.sh
+
 
 LIBVIRT_PATH=/var/lib/libvirt/images/coreos
 USER_DATA_TEMPLATE=$LIBVIRT_PATH/master.yaml
