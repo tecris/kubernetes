@@ -35,25 +35,25 @@
  * Add DNS to kubernetes
 
    ```
-   # kubectl create -f addons/dns/skydns-rc.yaml
-   # kubectl create -f addons/dns/skydns-svc.yaml
+   $ kubectl create -f addons/dns/skydns-rc.yaml
+   $ kubectl create -f addons/dns/skydns-svc.yaml
    ```
  * Add application
 
    ```
-   # kubectl create -f demo/jee/planets-db-pod.yaml
-   # kubectl create -f demo/jee/planets-db-svc.yaml
-   # kubectl create -f demo/jee/planets-web-rc-v1.yaml
-   # kubectl create -f demo/jee/planets-web-svc.yaml
+   $ kubectl create -f demo/jee/planets-db-pod.yaml
+   $ kubectl create -f demo/jee/planets-db-svc.yaml
+   $ kubectl create -f demo/jee/planets-web-rc-v1.yaml
+   $ kubectl create -f demo/jee/planets-web-svc.yaml
    ```
    
  * Rolling update
  
    ```
-   # kubectl scale --replicas=2 rc planets-web-rc-v1
-   - Replication Controller rolling update from "planets-web-rc-v1" to "planets-web-rc-v2".
-     (image change from blue.sky/planets-web:1 to blue.sky/planets-web:2)
-   # kubectl rolling-update planets-web-rc-v1 planets-web-rc-v2 -f demo/jee/planets-web-rc-v2.yaml
+   $ kubectl scale --replicas=2 rc planets-web-rc-v1
+   # Replication Controller rolling update from "planets-web-rc-v1" to "planets-web-rc-v2".
+   # (image change from blue.sky/planets-web:1 to blue.sky/planets-web:2)
+   $ kubectl rolling-update planets-web-rc-v1 planets-web-rc-v2 -f demo/jee/planets-web-rc-v2.yaml
    ```
    http://192.168.122.51:30002/planet
 
