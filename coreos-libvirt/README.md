@@ -101,18 +101,18 @@
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.4/cluster/addons/kube-ui)
 
     ```
-    # kubectl create -f addons/kube-system.json
-    # kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
-    # kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
+    $ kubectl create -f addons/kube-system.yaml
+    $ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
+    $ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
     ```
 
 1. Test kubernetes installation
- * UI: http://192.168.122.10:8080/ui -----BROKEN-----
+ * UI: http://192.168.122.10:8080/ui
  * CLI:
  
      ```
-     # kubectl get pods
-     # kubectl get nodes
+     $ kubectl get pods
+     $ kubectl get nodes
      ```
 
 
