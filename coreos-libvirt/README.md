@@ -4,8 +4,8 @@
  - Guest OS: CoreOS
  - Virtualization: libvirt
  - Ubuntu installed on 2 physical machines
-   - Kubernetes: v1.1.3
-   - CoreOS: alpha 835.9.0
+   - Kubernetes: v1.1.4
+   - CoreOS: alpha 835.11.0
    - Ubuntu: 14.04
 
 1. Ubuntu
@@ -61,7 +61,7 @@
     ```
 
 1. CoreOS
- - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.3/docs/getting-started-guides/coreos/cloud-configs)
+ - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.4/docs/getting-started-guides/coreos/cloud-configs)
  - [Cluster architecture](https://coreos.com/os/docs/latest/cluster-architectures.html#easy-development/testing-cluster)
 
 
@@ -69,7 +69,7 @@
     
  - [Install and configure kubectl][1]
     ```
-   # wget https://storage.googleapis.com/kubernetes-release/release/v1.1.3/bin/linux/amd64/kubectl
+   # wget https://storage.googleapis.com/kubernetes-release/release/v1.1.4/bin/linux/amd64/kubectl
    # chmod +x kubectl
    # mv kubectl /usr/local/bin
    -- configuration
@@ -98,7 +98,7 @@
     # cd /var/lib/libvirt/images/coreos
     # sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
     ```
- - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.3/cluster/addons/kube-ui)
+ - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.4/cluster/addons/kube-ui)
 
     ```
     # kubectl create -f addons/kube-system.json
