@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 # https://coreos.com/os/docs/latest/booting-with-libvirt.html
+# https://github.com/coreos/docs/blob/master/os/deploy_coreos_libvirt.sh
 # wget https://raw.githubusercontent.com/coreos/docs/master/os/deploy_coreos_libvirt.sh
 
 
