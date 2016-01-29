@@ -10,15 +10,13 @@
 
  - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
  - kubectl configured with kubernetes master
- - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
- - image blue.sky/tomcat:8.0.30 available (on private registry)
 
-1. Deploy Tomcat 8 on kuberntes
+1. Deploy [Tomcat 8](https://hub.docker.com/_/tomcat) on kuberntes
  * Create replica controller & service
 
     ```
-    $ kubectl -s 192.168.122.10:8080 create -f demo/tomcat/tomcat8-rc.yaml
-    $ kubectl -s 192.168.122.10:8080 create -f demo/tomcat/tomcat8-svc.yaml
+    $ kubectl create -f demo/tomcat/tomcat8-rc.yaml
+    $ kubectl create -f demo/tomcat/tomcat8-svc.yaml
     ```
  http://192.168.122.51:30001
 
