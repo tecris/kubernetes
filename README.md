@@ -32,12 +32,6 @@
   - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
   - TODO: web and db images available on private registry
 
- * Add DNS to kubernetes
-
-   ```
-   $ kubectl create -f addons/dns/skydns-rc.yaml
-   $ kubectl create -f addons/dns/skydns-svc.yaml
-   ```
  * Add application
 
    ```
