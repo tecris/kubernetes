@@ -11,3 +11,5 @@ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
 cd addons/dns && ./replace.sh && cd ../..
 kubectl create -f addons/dns/skydns-rc.yaml
 kubectl create -f addons/dns/skydns-svc.yaml
+rm addons/dns/skydns-rc.yaml
+rm addons/dns/skydns-svc.yaml
