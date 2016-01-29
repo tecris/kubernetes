@@ -60,10 +60,18 @@
  - [Install and configure kubectl][1]
    *  ``` ./installKubectl.sh```
  - Start master on 192.168.1.72
+
     ```
     $ cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_master_coreos_libvirt.sh
+    ```
+ - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui)
+
+    ```
+    $ kubectl create -f addons/kube-system.yaml
+    $ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
+    $ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
     ```
  - Start 3 nodes on 192.168.1.72
 
@@ -78,13 +86,6 @@
     $ cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
-    ```
- - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui)
-
-    ```
-    $ kubectl create -f addons/kube-system.yaml
-    $ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-rc.yaml
-    $ kubectl --namespace=kube-system create -f addons/kube-ui/kube-ui-svc.yaml
     ```
 
 1. Test kubernetes installation
