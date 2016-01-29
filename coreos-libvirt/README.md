@@ -31,12 +31,6 @@
  - Configure for static ip address
 
     ` ./staticIpAddress.sh`
- - Restart libvirt network
-
-    ```
-    $ virsh net-destroy default
-    $ virsh net-start default
-    ```
  - 192.168.1.72 should have libvirt subnet - 192.168.122.*
  - 192.168.1.73 should have libvirt subnet - 192.168.123.*
 
