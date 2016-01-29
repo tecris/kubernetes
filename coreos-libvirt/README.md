@@ -12,17 +12,14 @@
  - 2 physical machines with Ubuntu 14.04
     * machine A - 192.168.1.72
     * machine B - 192.168.1.73
-1. libvirt
+1. ```$ installLibvirt.sh    # install libvirt```
  - Install
 
-    ```
-     # sudo apt-get install dnsmasq ebtables qemu-kvm qemu virt-manager virt-viewer libvirt-bin
-     # sudo usermod -a -G libvirtd $USER
-    ```
+    ```installLibvirt.sh```
  - Verify installation
-   * `# virsh list --all`
+   * `$ virsh list --all`
  - Modify subnet on 192.168.1.73, change to 192.168.123.*
-   * `# virsh net-edit default`
+   * `$ virsh net-edit default`
  - Change forward mode from nat(default mode) to route on both machines
 
     ```
