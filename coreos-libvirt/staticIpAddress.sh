@@ -18,3 +18,6 @@ virsh net-update default add ip-dhcp-host \
           "<host mac='52:54:00:2c:05:02' \
            name='node-02' ip='192.168.122.52' />" \
            --live --config
+
+virsh net-destroy default
+virsh net-start default
