@@ -66,7 +66,7 @@
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_master_coreos_libvirt.sh
     ```
- - Addons ([Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui) & DNS)
+ - Addons ([Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui) & [DNS](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/dns))
 
     ```$ ./installAddons.sh```
     
