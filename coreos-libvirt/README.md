@@ -14,8 +14,7 @@
     * machine B - 192.168.1.73
 1. ```$ installLibvirt.sh    # install libvirt```
  - Install
-
-    ```installLibvirt.sh```
+   * `installLibvirt.sh`
  - Verify installation
    * `$ virsh list --all`
  - Modify subnet on 192.168.1.73, change to 192.168.123.*
