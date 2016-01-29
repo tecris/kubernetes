@@ -62,7 +62,7 @@
  - Start master on 192.168.1.72
 
     ```
-    $ cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
+    $ sudo mkdir -p /var/lib/libvirt/images/coreos && sudo cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_master_coreos_libvirt.sh
     ```
@@ -73,14 +73,14 @@
  - Start 3 nodes on 192.168.1.72
 
     ```
-    $ cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
+    $ sudo cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip registry_mirror_ip
     ```
  - Start 3 nodes on 192.168.1.73
 
     ```
-    $ cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
+    $ sudo mkdir -p /var/lib/libvirt/images/coreos && sudo cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
     ```
