@@ -58,8 +58,7 @@
 1. Kubernetes
     
  - [Install and configure kubectl][1]
-    ``` ./installKubectl.sh```
-    
+   *  ``` ./installKubectl.sh```
  - Start master on 192.168.1.72
     ```
     $ cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
