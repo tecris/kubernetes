@@ -22,7 +22,7 @@
  - Change forward mode from nat(default mode) to route on both machines
 
     ```
-      # virsh net-edit default
+      $ virsh net-edit default
       ...
       <forward mode='nat'/>
       becomes
@@ -34,8 +34,8 @@
  - Restart libvirt network
 
     ```
-    # virsh net-destroy default
-    # virsh net-start default
+    $ virsh net-destroy default
+    $ virsh net-start default
     ```
  - 192.168.1.72 should have libvirt subnet - 192.168.122.*
  - 192.168.1.73 should have libvirt subnet - 192.168.123.*
@@ -44,8 +44,8 @@
  - add routes that subnet 192.168.123 can reach 192.168.122 and vice-versa.
 
     ```
-     # sudo route add -net 192.168.122.0 netmask 255.255.255.0 gw 192.168.1.72
-     # sudo route add -net 192.168.123.0 netmask 255.255.255.0 gw 192.168.1.73
+     $ sudo route add -net 192.168.122.0 netmask 255.255.255.0 gw 192.168.1.72
+     $ sudo route add -net 192.168.123.0 netmask 255.255.255.0 gw 192.168.1.73
     ```
  - add routes that both subnet 192.168.12[2,3] can reach outside. Find gateway for machine A/B and add routes.
    - Example for 192.168.122
@@ -65,34 +65,34 @@
     
  - [Install and configure kubectl][1]
     ```
-   # wget https://storage.googleapis.com/kubernetes-release/release/v1.1.7/bin/linux/amd64/kubectl
-   # chmod +x kubectl
-   # mv kubectl /usr/local/bin
+   $ wget https://storage.googleapis.com/kubernetes-release/release/v1.1.7/bin/linux/amd64/kubectl
+   $ chmod +x kubectl
+   $ mv kubectl /usr/local/bin
    -- configuration
-   # kubectl config set-cluster default-cluster --server=http://192.168.122.10:8080
-   # kubectl config set-context default-system --cluster=default-cluster
-   # kubectl config use-context default-system
+   $ kubectl config set-cluster default-cluster --server=http://192.168.122.10:8080
+   $ kubectl config set-context default-system --cluster=default-cluster
+   $ kubectl config use-context default-system
     ```
     
  - Start master on 192.168.1.72
     ```
-    # cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
-    # cd /var/lib/libvirt/images/coreos
-    # sudo ./deploy_master_coreos_libvirt.sh
+    $ cp deploy_master_coreos_libvirt.sh master.yaml  /var/lib/libvirt/images/coreos
+    $ cd /var/lib/libvirt/images/coreos
+    $ sudo ./deploy_master_coreos_libvirt.sh
     ```
  - Start 3 nodes on 192.168.1.72
 
     ```
-    # cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
-    # cd /var/lib/libvirt/images/coreos
-    # sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip registry_mirror_ip
+    $ cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
+    $ cd /var/lib/libvirt/images/coreos
+    $ sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip registry_mirror_ip
     ```
  - Start 3 nodes on 192.168.1.73
 
     ```
-    # cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
-    # cd /var/lib/libvirt/images/coreos
-    # sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
+    $ cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
+    $ cd /var/lib/libvirt/images/coreos
+    $ sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
     ```
  - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui)
 
