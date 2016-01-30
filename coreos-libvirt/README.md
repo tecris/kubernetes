@@ -15,6 +15,7 @@
 1. libvirt
  - Install
    * `$ ./installLibvirt.sh`
+   *  logout & login
  - Verify installation
    * `$ virsh list --all`
  - Modify subnet on 192.168.1.73, change to 192.168.123.*
