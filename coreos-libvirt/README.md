@@ -14,7 +14,7 @@
     * machine B - 192.168.1.73
 1. libvirt
  - Install
-   * `$ ./installLibvirt.sh`
+   * `$ ./010-installLibvirt.sh`
    *  logout & login
  - Verify installation
    * `$ virsh list --all`
@@ -31,7 +31,7 @@
     ```
  - Configure for static ip address
 
-    ` ./staticIpAddress.sh`
+    ` ./050-staticIpAddress.sh`
  - 192.168.1.72 should have libvirt subnet - 192.168.122.*
  - 192.168.1.73 should have libvirt subnet - 192.168.123.*
 
@@ -59,7 +59,7 @@
 1. Kubernetes
     
  - [Install and configure kubectl][1]
-   *  ``` ./installKubectl.sh```
+   *  ``` ./200-installKubectl.sh```
  - Start master on 192.168.1.72
 
     ```
@@ -69,7 +69,7 @@
     ```
  - Addons ([Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui) & [DNS](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/dns))
 
-    ```$ ./installAddons.sh```
+    ```$ ./500-installAddons.sh```
     
  - Start 3 nodes on 192.168.1.72
 
