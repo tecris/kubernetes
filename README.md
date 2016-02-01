@@ -1,7 +1,5 @@
 [Tomcat 8](#tomcat)
 
-[Wildfly & MySQL](#widlfy-and-mysql)
-
 [Kubectl commands](#varia-kubectl-commands)
 
 #### Tomcat
@@ -19,35 +17,6 @@
     $ kubectl create -f demo/tomcat/tomcat8-svc.yaml
     ```
  http://192.168.122.51:30001
-
-
-#### Widlfy and MySQL
-
- * Assumptions: 
-  
-  - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
-  - kubectl configured with kubernetes master
-  - docker private [registry](https://github.com/tecris/docker/tree/v3.6.1/registry2) deployed
-  - TODO: web and db images available on private registry
-
- * Add application
-
-   ```
-   $ kubectl create -f demo/jee/planets-db-pod.yaml
-   $ kubectl create -f demo/jee/planets-db-svc.yaml
-   $ kubectl create -f demo/jee/planets-web-rc-v1.yaml
-   $ kubectl create -f demo/jee/planets-web-svc.yaml
-   ```
-   
- * Rolling update
- 
-   ```
-   $ kubectl scale --replicas=2 rc planets-web-rc-v1
-   # Replication Controller rolling update from "planets-web-rc-v1" to "planets-web-rc-v2".
-   # (image change from blue.sky/planets-web:1 to blue.sky/planets-web:2)
-   $ kubectl rolling-update planets-web-rc-v1 planets-web-rc-v2 -f demo/jee/planets-web-rc-v2.yaml
-   ```
-   http://192.168.122.51:30002/planet
 
 
 #### Varia kubectl commands
