@@ -77,6 +77,7 @@
     $ sudo cp deploy_nodes_coreos_libvirt.sh node.yaml  /var/lib/libvirt/images/coreos
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_nodes_coreos_libvirt.sh a 3 kube_master_ip registry_mirror_ip
+    $ sudo ./deploy_nodes_coreos_libvirt.sh a 2 192.168.122.10 172.17.0.1
     ```
  - Start 3 nodes on 192.168.1.73
 
