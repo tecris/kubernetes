@@ -13,8 +13,8 @@
  * Create replica controller & service
 
     ```
-    $ kubectl create -f demo/tomcat/tomcat8-rc.yaml
-    $ kubectl create -f demo/tomcat/tomcat8-svc.yaml
+    $ kubectl create -f demo/tomcat8-rc.yaml
+    $ kubectl create -f demo/tomcat8-svc.yaml
     ```
  http://192.168.122.51:30001
 
