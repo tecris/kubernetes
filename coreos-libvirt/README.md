@@ -1,12 +1,12 @@
 ## Kubernetes on CoreOS
 This guide aims to provide full step-by-step instructions how to get from a raw ubuntu installation to a running kubernetes cluster.
-
+<hr/>
 [**Libvirt**](#libvirt)
 
 [**CoreOS**](#coreos)
 
 [**Kubernetes**](#kubernetes)
-
+<hr/>
 ### Overview
  - Guest OS: CoreOS
  - Virtualization: libvirt
