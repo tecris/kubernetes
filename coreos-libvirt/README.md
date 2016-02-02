@@ -99,7 +99,6 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
     ```
-
  - Test kubernetes installation
   * UI: http://192.168.122.10:8080/ui
   * CLI:
