@@ -2,12 +2,11 @@
 
 [**Full Step by Step Guide**](#full-step-by-step-guide)
 
+Generic guid to setup a multi node cluster on CoreOS
+
 [**Tomcat 8 Demo**](#tomcat)
 
 [**Kubectl commands**](#varia-kubectl-commands)
-
-### **Full Step by Step Guide**
-
 
 
 #### **Tomcat**
