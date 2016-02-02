@@ -1,11 +1,11 @@
 ## Kubernetes on CoreOS
 
- - Host OS: Ubuntu
  - Guest OS: CoreOS
  - Virtualization: libvirt
+ - Host OS: Ubuntu
  - Ubuntu installed on 2 physical machines
    - Kubernetes: v1.1.7
-   - CoreOS: alpha 835.11.0
+   - CoreOS: alpha 935.0.0
    - Ubuntu: 14.04
 
 1. Ubuntu
@@ -59,7 +59,7 @@
 1. Kubernetes
     
  - [Install and configure kubectl][1]
-   *  ``` ./200-installKubectl.sh```
+   *  `$ ./200-installKubectl.sh`
  - Start master on 192.168.1.72
 
     ```
