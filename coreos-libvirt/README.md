@@ -1,4 +1,5 @@
 ## Kubernetes on CoreOS
+This guide aims to provide full step-by-step instructions how to get from a raw ubuntu installation to a running kubernetes cluster.
 
 ### Setup
  - Guest OS: CoreOS
