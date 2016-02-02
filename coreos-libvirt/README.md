@@ -1,7 +1,13 @@
 ## Kubernetes on CoreOS
 This guide aims to provide full step-by-step instructions how to get from a raw ubuntu installation to a running kubernetes cluster.
 
-### Setup
+[**Libvirt**](#libvirt)
+
+[**CoreOS**](#coreos)
+
+[**Kubernetes**](#kubernetes)
+
+### Overview
  - Guest OS: CoreOS
  - Virtualization: libvirt
  - Host OS: Ubuntu
@@ -17,7 +23,8 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
  - 2 physical machines with Ubuntu
     * machine A - 192.168.1.72
     * machine B - 192.168.1.73
-1. libvirt
+
+### libvirt
  - Install
    * `$ ./010-installLibvirt.sh`
    *  logout & login
@@ -56,12 +63,12 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
     Default Gateway: 192.168.1.68 (libvirt host)
     ```
 
-1. CoreOS
+### CoreOS
  - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.7/docs/getting-started-guides/coreos/cloud-configs)
  - [Cluster architecture](https://coreos.com/os/docs/latest/cluster-architectures.html#easy-development/testing-cluster)
 
 
-1. Kubernetes
+### Kubernetes
     
  - [Install and configure kubectl][1]
    *  `$ ./200-installKubectl.sh`
@@ -92,9 +99,9 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
     $ sudo ./deploy_nodes_coreos_libvirt.sh b 3 kube_master_ip registry_mirror_ip
     ```
 
-1. Test kubernetes installation
- * UI: http://192.168.122.10:8080/ui
- * CLI:
+ - Test kubernetes installation
+  * UI: http://192.168.122.10:8080/ui
+  * CLI:
  
      ```
      $ kubectl get pods
