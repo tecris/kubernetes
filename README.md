@@ -1,6 +1,6 @@
 ## Kubernetes on [CoreOS](https://coreos.com)
 
-[**Full Step by Step Guide**](#full-step-by-step-guide)
+[**Full Step by Step Guide**](coreos-libvirt/README.md)
 
 Generic guid to setup a multi node cluster on CoreOS
 
