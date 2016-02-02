@@ -13,8 +13,7 @@ Generic guid to setup a multi node cluster on CoreOS
 
 1. Assumptions: 
 
- - [kubernetes installed](https://github.com/tecris/kubernetes/tree/v1.1.3-2/coreos-libvirt)
- - kubectl configured with kubernetes master
+ - [**Full Step by Step Guide**](coreos-libvirt/README.md) completed
 
 1. Deploy [Tomcat 8](https://hub.docker.com/_/tomcat) on kuberntes
  * Create replica controller & service
