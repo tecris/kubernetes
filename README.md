@@ -6,6 +6,9 @@ Generic guid to setup a multi node cluster on CoreOS
 
 [**Tomcat 8 Demo**](#tomcat)
 
+[**Two tier JEE application**](https://github.com/tecris/continuous-delivery/blob/v16.02.02/README.md#kubernetes)
+ - Demonstrates scaling, rolling updates
+
 [**Kubectl commands**](#varia-kubectl-commands)
 
 
