@@ -1,8 +1,16 @@
-[Tomcat 8](#tomcat)
+## Kubernetes on [CoreOS](https://coreos.com)
 
-[Kubectl commands](#varia-kubectl-commands)
+[**Full Step by Step Guide**](#full-step-by-step-guide)
 
-#### Tomcat
+[**Tomcat 8 Demo**](#tomcat)
+
+[**Kubectl commands**](#varia-kubectl-commands)
+
+### **Full Step by Step Guide**
+
+
+
+#### **Tomcat**
 
 1. Assumptions: 
 
