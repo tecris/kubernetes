@@ -1,15 +1,19 @@
 ## Kubernetes on CoreOS
 
+### Setup
  - Guest OS: CoreOS
  - Virtualization: libvirt
  - Host OS: Ubuntu
- - Ubuntu installed on 2 physical machines
-   - Kubernetes: v1.1.7
-   - CoreOS: alpha 935.0.0
-   - Ubuntu: 14.04
+ 
+| *Technology*  | *Version* |
+| ------------- | ------------- |
+| Kubernetes | v1.1.7|
+| CoreOS | 935.0.0 - alpha channel|
+| Ubuntu | 14.04|
+
 
 1. Bare necessities
- - 2 physical machines with Ubuntu 14.04
+ - 2 physical machines with Ubuntu
     * machine A - 192.168.1.72
     * machine B - 192.168.1.73
 1. libvirt
