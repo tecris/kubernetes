@@ -109,11 +109,8 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
      $ kubectl get nodes
      ```
 
-
 References
-
-[CoreOS with libvirt](https://coreos.com/os/docs/latest/booting-with-libvirt.html)
-
-[Route example](http://www.thegeekstuff.com/2012/04/route-examples/)
+ - [CoreOS with libvirt](https://coreos.com/os/docs/latest/booting-with-libvirt.html)
+ - [Route example](http://www.thegeekstuff.com/2012/04/route-examples/)
 
 [1]:https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
