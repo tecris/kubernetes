@@ -8,7 +8,7 @@
    - CoreOS: alpha 935.0.0
    - Ubuntu: 14.04
 
-1. Ubuntu
+1. Bare necessities
  - 2 physical machines with Ubuntu 14.04
     * machine A - 192.168.1.72
     * machine B - 192.168.1.73
