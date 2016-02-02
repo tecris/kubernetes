@@ -1,9 +1,10 @@
 ## Kubernetes on CoreOS
 This guide aims to provide full step-by-step instructions how to get from a raw ubuntu installation to a running kubernetes cluster.
 <hr/>
-[**Libvirt**](#libvirt)
-
-[**CoreOS**](#coreos)
+[**Prerequisites**](#prerequisites)
+ - [**Ubuntu**](#ubuntu-bare-necessities)
+ - [**Libvirt**](#libvirt)
+ - [**CoreOS**](#coreos)
 
 [**Kubernetes**](#kubernetes)
 <hr/>
@@ -18,13 +19,13 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
 | CoreOS | 935.0.0 - alpha channel|
 | Ubuntu | 14.04|
 
-
-1. Bare necessities
+### Prerequisites
+#### Ubuntu bare necessities
  - 2 physical machines with Ubuntu
     * machine A - 192.168.1.72
     * machine B - 192.168.1.73
 
-### libvirt
+#### libvirt
  - Install
    * `$ ./010-installLibvirt.sh`
    *  logout & login
@@ -63,7 +64,7 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
     Default Gateway: 192.168.1.68 (libvirt host)
     ```
 
-### CoreOS
+#### CoreOS
  - Cloud config configuration adapted from [kubernets](https://github.com/kubernetes/kubernetes/tree/v1.1.7/docs/getting-started-guides/coreos/cloud-configs)
  - [Cluster architecture](https://coreos.com/os/docs/latest/cluster-architectures.html#easy-development/testing-cluster)
 
