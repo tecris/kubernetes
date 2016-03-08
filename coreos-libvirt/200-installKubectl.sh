@@ -2,7 +2,7 @@
 
 # https://coreos.com/kubernetes/docs/latest/configure-kubectl.html
 
-KUBERNETES_VERSION=v1.1.7
+KUBERNETES_VERSION=v1.1.8
 
 wget https://storage.googleapis.com/kubernetes-release/release/$KUBERNETES_VERSION/bin/linux/amd64/kubectl
 chmod +x kubectl
