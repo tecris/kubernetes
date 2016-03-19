@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: tomcat8
-        image: tomcat:8.0.30-jre8
+        image: tomcat:8.0.32-jre8
         ports:
         - containerPort: 8080
