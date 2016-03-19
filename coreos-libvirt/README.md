@@ -15,7 +15,7 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
  
 | *Technology*  | *Version* |
 | ------------- | ------------- |
-| Kubernetes | v1.1.8|
+| Kubernetes | v1.2.0|
 | CoreOS | 835.13.0 - alpha channel|
 | Ubuntu | 14.04|
 
@@ -80,7 +80,7 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
     $ cd /var/lib/libvirt/images/coreos
     $ sudo ./deploy_master_coreos_libvirt.sh
     ```
- - Addons ([Kube-ui](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/kube-ui) & [DNS](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/dns))
+ - Addons [DNS](https://github.com/kubernetes/kubernetes/tree/v1.1.7/cluster/addons/dns))
 
     ```$ ./500-installAddons.sh```
     
