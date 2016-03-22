@@ -1,6 +1,6 @@
 ## Kubernetes on [CoreOS](https://coreos.com)
 
- - [**Step by Step Guide**](coreos-libvirt/README.md)
+ - [**Step by Step installation guide**](coreos-libvirt/README.md)
  - [**Tomcat 8 Demo**](#tomcat)
  - [**Kubectl commands**](#varia-kubectl-commands)
 
