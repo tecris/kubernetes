@@ -1,16 +1,8 @@
 ## Kubernetes on [CoreOS](https://coreos.com)
 
-[**Full Step by Step Guide**](coreos-libvirt/README.md)
-
-Generic guid to setup a multi node cluster on CoreOS
-
-[**Tomcat 8 Demo**](#tomcat)
-
-[**Two tier JEE application**](https://github.com/tecris/continuous-delivery/blob/v16.02.02/README.md#kubernetes)
- - Demonstrates scaling, rolling updates
-
-[**Kubectl commands**](#varia-kubectl-commands)
-
+ - [**Step by Step installation guide**](coreos-libvirt/README.md)
+ - [**Tomcat 8 Demo**](#tomcat)
+ - [**Kubectl commands**](#varia-kubectl-commands)
 
 #### **Tomcat**
 
