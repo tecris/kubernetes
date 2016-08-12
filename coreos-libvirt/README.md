@@ -15,7 +15,7 @@ This guide aims to provide full step-by-step instructions how to get from a raw 
  
 | *Technology*  | *Version* |
 | ------------- | ------------- |
-| Kubernetes | v1.2.2 |
+| Kubernetes | v1.3.4 |
 | CoreOS | 899.13.0 |
 | Ubuntu | 14.04 |
 
